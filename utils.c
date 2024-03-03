@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:37:59 by anamieta          #+#    #+#             */
-/*   Updated: 2024/02/24 18:40:49 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/03 18:24:10 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,25 @@ int	stack_len(t_stack_node *stack)
 		len++;
 	}
 	return (len);
+}
+
+t_stack_node	*find_smallest(t_stack_node *stack)
+{
+	long			smallest_value;
+	t_stack_node	*smallest_node;
+
+	if (!stack)
+		return (NULL);
+	smallest_node = stack;
+	smallest_value = stack->value;
+	while (stack)
+	{
+		if (stack->value < smallest_value)
+		{
+			smallest_node = stack;
+			smallest_value = stack->value;
+		}
+		stack = stack->next;
+	}
+	return (smallest_node);
 }

@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 18:19:02 by anamieta          #+#    #+#             */
-/*   Updated: 2024/02/23 19:19:12 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/03 18:45:01 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
 	stack_init(&a, argv + 1, argc == 2);
-	if (!stack_sorted(a))
+	if (!stack_ordered(a))
 	{
 		if (stack_len(a) == 2)
 			sa(&a, false);

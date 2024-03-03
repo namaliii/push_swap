@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:22:03 by anamieta          #+#    #+#             */
-/*   Updated: 2024/02/24 18:33:24 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/03 16:59:57 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,46 @@ static long	ft_atol(const char *str)
 		i++;
 	}
 	return (result * sign);
+}
+
+static void	append_node(t_stack_node **stack, long n)
+{
+	t_stack_node	*new;
+	t_stack_node	*current;
+
+	if (stack == NULL)
+		return ;
+	new = malloc(sizeof(t_stack_node));
+	if (new == NULL)
+		return ;
+	new->value = n;
+	new->next = NULL;
+	if (*stack)
+	{
+		current = *stack;
+		while (current->next)
+			current = current->next;
+		current->next = new;
+		new->prev = current;
+	}
+	else
+	{
+		new->prev = NULL;
+		*stack = new;
+	}
+}
+
+void	stack_init(t_stack_node **a, char **argv)
+{
+	long	n;
+	int		i;
+
+	i = 0;
+	while (argv[i])
+	{
+		n = ft_atol(argv[i]);
+		handle_errors(a, argv[i], (int)n);
+		append_node(a, (int)n);
+		i++;
+	}
 }

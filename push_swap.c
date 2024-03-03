@@ -1,33 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 18:29:48 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/02 16:55:59 by anamieta         ###   ########.fr       */
+/*   Created: 2024/03/03 16:55:51 by anamieta          #+#    #+#             */
+/*   Updated: 2024/03/03 16:55:55 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include <stdlib.h>
-# include <limits.h>
-# include <stdbool.h>
-# include <unistd.h>
-
-typedef struct s_stack_node
-{
-	int					value;
-	int					index;
-	int					push_price;
-	bool				above_median;
-	bool				cheapest;
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}				t_stack_node;
-
-#endif
