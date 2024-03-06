@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   sort_little_lists.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:01:47 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/03 19:02:15 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:55:59 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	stack_ordered(t_stack_node *stack)
 	return (true);
 }
 
-static t_stack_node	*find_biggest(t_stack_node *stack)
+static t_stack_node	*return_biggest(t_stack_node *stack)
 {
 	int				biggest_value;
 	t_stack_node	*biggest_node;
@@ -49,7 +49,7 @@ void	sort_three(t_stack_node **a)
 {
 	t_stack_node	*biggest_node;
 
-	biggest_node = find_biggest(a);
+	biggest_node = return_biggest(*a);
 	if (*a == biggest_node)
 		ra(a);
 	else if ((*a)->next == biggest_node)
@@ -62,8 +62,8 @@ void	sort_five(t_stack_node **a, t_stack_node **b)
 {
 	while (stack_len(*a) > 3)
 	{
-		init_nodes(*a, *b);
-		finish_rotation(a, find_smallest(*a), 'a');
+		calibrate_nodes(*a, *b);
+		push_ready(a, return_smallest(*a), 'a');
 		pb(b, a);
 	}
 }

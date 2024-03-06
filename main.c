@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 18:19:02 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/03 18:45:01 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/06 18:02:53 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,19 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
-	stack_init(&a, argv + 1, argc == 2);
+	if (argc == 2)
+		stack_init(&a, argv);
+	else
+		stack_init(&a, argv + 1);
 	if (!stack_ordered(a))
 	{
 		if (stack_len(a) == 2)
-			sa(&a, false);
+			sa(&a);
 		else if (stack_len(a) == 3)
 			sort_three(&a);
 		else
 			push_swap(&a, &b);
 	}
 	free_stack(&a);
+	return (0);
 }

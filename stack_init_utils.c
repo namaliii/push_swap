@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 16:36:12 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/03 16:16:00 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:53:25 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ static void	set_target_node(t_stack_node *a, t_stack_node *b)
 			current_a = current_a->next;
 		}
 		if (best_match == LONG_MAX)
-			target_node = find_smallest(a);
+			target_node = return_smallest(a);
 		else
 			b->target_node = target_node;
 		b = b->next;
 	}
 }
 
-void	set_price(t_stack_node *a, t_stack_node *b)
+static void	set_price(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
 	int	len_b;
@@ -81,7 +81,7 @@ void	set_price(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	set_cheapest(t_stack_node *b)
+static void	set_cheapest(t_stack_node *b)
 {
 	long			best_match_value;
 	t_stack_node	*best_match_node;
@@ -101,7 +101,7 @@ void	set_cheapest(t_stack_node *b)
 	best_match_node->cheapest = true;
 }
 
-void	init_nodes(t_stack_node *a, t_stack_node *b)
+void	calibrate_nodes(t_stack_node *a, t_stack_node *b)
 {
 	current_index(a);
 	current_index(b);
