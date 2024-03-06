@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:10:11 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/04 16:48:12 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/06 20:20:04 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	pa(t_stack_node **a, t_stack_node **b)
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_stack_node **a, t_stack_node **b)
+void	pb(t_stack_node **b, t_stack_node **a)
 {
 	push(b, a);
 	write(1, "pb\n", 3);

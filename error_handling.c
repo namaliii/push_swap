@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:51:03 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/06 17:59:21 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/06 18:41:47 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static int	error_duplicated(t_stack_node *a, int nbr)
 	}
 	return (0);
 }
-
 static int	error_nondigit(char *str)
 {
 	int	i;
@@ -36,9 +35,9 @@ static int	error_nondigit(char *str)
 		return (1);
 	while (str[i])
 	{
-		i++;
 		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (1);
+		i++;
 	}
 	return (0);
 }
