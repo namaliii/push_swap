@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:37:59 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/06 14:58:14 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/10 22:18:34 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	stack_len(t_stack_node *stack)
 	}
 	return (len);
 }
+#include <stdio.h>
 
 t_stack_node	*return_smallest(t_stack_node *stack)
 {
@@ -34,8 +35,8 @@ t_stack_node	*return_smallest(t_stack_node *stack)
 
 	if (!stack)
 		return (NULL);
+	smallest_value = INT_MAX;
 	smallest_node = stack;
-	smallest_value = stack->value;
 	while (stack)
 	{
 		if (stack->value < smallest_value)
@@ -50,7 +51,7 @@ t_stack_node	*return_smallest(t_stack_node *stack)
 
 t_stack_node	*return_cheapest(t_stack_node *stack)
 {
-	if (stack == NULL)
+	if (!stack)
 		return (NULL);
 	while (stack)
 	{

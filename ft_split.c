@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:15:25 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/02 12:13:50 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/09 15:54:19 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static int	word_count(char const *s, char delimiter)
 
 	i = 0;
 	word_count = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		if (s[i] != delimiter && (s[i + 1] == 0 || s[i + 1] == delimiter))
+		if (s[i] != delimiter && (!s[i + 1] || s[i + 1] == delimiter))
 			word_count++;
 		i++;
 	}
@@ -34,13 +34,13 @@ static char	*extract_word(char *s, char delimiter)
 	char	*word;
 
 	i = 0;
-	while (s[i] != '\0' && s[i] != delimiter)
+	while (s[i] && s[i] != delimiter)
 		i++;
 	word = (char *)malloc(sizeof(char) * (i + 1));
 	if (word == NULL)
 		return (NULL);
 	i = 0;
-	while (s[i] != '\0' && s[i] != delimiter)
+	while (s[i] && s[i] != delimiter)
 	{
 		word[i] = s[i];
 		i++;
@@ -63,9 +63,9 @@ void	cleanup(char **word_array, int word_index)
 
 int	parse_words(char **words, char *s, char delimiter, int word_index)
 {
-	while (*s != '\0' && *s == delimiter)
+	while (*s && *s == delimiter)
 		s++;
-	while (*s != '\0')
+	while (*s)
 	{
 		words[word_index] = extract_word(s, (unsigned char)delimiter);
 		if (words[word_index] == 0)
@@ -74,9 +74,9 @@ int	parse_words(char **words, char *s, char delimiter, int word_index)
 			return (0);
 		}
 		word_index++;
-		while (*s != '\0' && *s != delimiter)
+		while (*s && *s != delimiter)
 			s++;
-		while (*s != '\0' && *s == delimiter)
+		while (*s && *s == delimiter)
 			s++;
 	}
 	return (word_index);

@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 16:36:12 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/06 15:53:25 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/10 22:18:21 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	current_index(t_stack_node *stack)
 	while (stack)
 	{
 		stack->index = i;
-		if (i < median)
+		if (i <= median)
 			stack->above_median = true;
 		else
 			stack->above_median = false;
@@ -32,16 +32,18 @@ void	current_index(t_stack_node *stack)
 		i++;
 	}
 }
+#include <stdio.h>
 
 static void	set_target_node(t_stack_node *a, t_stack_node *b)
 {
+	long			best_match;
 	t_stack_node	*current_a;
 	t_stack_node	*target_node;
-	long			best_match;
 
+	target_node = NULL;
 	while (b)
 	{
-		best_match = LONG_MAX;
+		best_match = INT_MAX;
 		current_a = a;
 		while (current_a)
 		{
@@ -52,10 +54,11 @@ static void	set_target_node(t_stack_node *a, t_stack_node *b)
 			}
 			current_a = current_a->next;
 		}
-		if (best_match == LONG_MAX)
+		if (best_match == INT_MAX)
 			target_node = return_smallest(a);
-		else
-			b->target_node = target_node;
+		b->target_node = target_node;
+		// if (target_node)
+		// printf("Target node: %d", b->target_node->value);
 		b = b->next;
 	}
 }
@@ -73,9 +76,9 @@ static void	set_price(t_stack_node *a, t_stack_node *b)
 			b->push_price = b->index;
 		else
 			b->push_price = len_b - (b->index);
-		if (b->target_node->above_median)
+		if (b && b->target_node && b->target_node->above_median)
 			b->push_price += b->target_node->index;
-		else
+		else if (b && b->target_node && !b->target_node->above_median)
 			b->push_price += len_a - (b->target_node->index);
 		b = b->next;
 	}
@@ -83,13 +86,13 @@ static void	set_price(t_stack_node *a, t_stack_node *b)
 
 static void	set_cheapest(t_stack_node *b)
 {
-	long			best_match_value;
 	t_stack_node	*best_match_node;
+	long			best_match_value;
 
-	if (b == NULL)
+	if (!b)
 		return ;
-	best_match_value = LONG_MAX;
-	while (b)
+	best_match_value = INT_MAX;
+	while (b != NULL)
 	{
 		if (b->push_price < best_match_value)
 		{

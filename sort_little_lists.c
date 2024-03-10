@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:01:47 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/06 15:55:59 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/10 14:24:30 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static t_stack_node	*return_biggest(t_stack_node *stack)
 	int				biggest_value;
 	t_stack_node	*biggest_node;
 
-	if (stack == NULL)
+	if (!stack)
 		return (NULL);
 	biggest_value = INT_MIN;
 	while (stack)
@@ -64,6 +64,6 @@ void	sort_five(t_stack_node **a, t_stack_node **b)
 	{
 		calibrate_nodes(*a, *b);
 		push_ready(a, return_smallest(*a), 'a');
-		pb(b, a);
+		pb(a, b);
 	}
 }

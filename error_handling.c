@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:51:03 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/06 18:41:47 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/10 17:24:05 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,15 @@ static int	error_duplicated(t_stack_node *a, int nbr)
 	}
 	return (0);
 }
+
 static int	error_nondigit(char *str)
 {
 	int	i;
 
 	i = 0;
+	if ((str[i] == '+' || str[i] == '-')
+		&& !(str[i + 1] >= '0' && str[i + 1] >= '9'))
+		return (1);
 	if (str[i] == '+' || str[i] == '-')
 		i++;
 	if (!(str[i] >= '0' && str[i] <= '9'))
@@ -44,12 +48,13 @@ static int	error_nondigit(char *str)
 
 void	free_stack(t_stack_node **stack)
 {
-	t_stack_node	*tmp;
 	t_stack_node	*current;
+	t_stack_node	*tmp;
 
 	current = NULL;
 	if (!stack || !*stack)
 		return ;
+	current = *stack;
 	while (current)
 	{
 		tmp = current->next;

@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 18:29:48 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/06 20:20:00 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/10 17:23:30 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_stack_node	*return_last_node(t_stack_node *stack);
 
 //operations
 void			pa(t_stack_node **a, t_stack_node **b);
-void			pb(t_stack_node **b, t_stack_node **a);
+void			pb(t_stack_node **a, t_stack_node **b);
 void			rra(t_stack_node **a);
 void			rrb(t_stack_node **b);
 void			rrr(t_stack_node **a, t_stack_node **b);
@@ -58,6 +58,7 @@ void			rr(t_stack_node **a, t_stack_node **b);
 void			sa(t_stack_node **a);
 void			sb(t_stack_node **b);
 void			ss(t_stack_node **a, t_stack_node **b);
+
 //sorting algorythms
 bool			stack_ordered(t_stack_node *stack);
 void			sort_three(t_stack_node **a);
