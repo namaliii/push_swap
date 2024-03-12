@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:37:59 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/10 22:18:34 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/11 20:23:34 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	stack_len(t_stack_node *stack)
 	}
 	return (len);
 }
-#include <stdio.h>
 
 t_stack_node	*return_smallest(t_stack_node *stack)
 {

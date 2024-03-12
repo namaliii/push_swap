@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:01:47 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/10 14:24:30 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/11 16:55:33 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,4 @@ void	sort_three(t_stack_node **a)
 		rra(a);
 	if ((*a)->value > (*a)->next->value)
 		sa(a);
-}
-
-void	sort_five(t_stack_node **a, t_stack_node **b)
-{
-	while (stack_len(*a) > 3)
-	{
-		calibrate_nodes(*a, *b);
-		push_ready(a, return_smallest(*a), 'a');
-		pb(a, b);
-	}
 }

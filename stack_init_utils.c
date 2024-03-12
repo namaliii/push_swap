@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 16:36:12 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/10 22:18:21 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/11 16:55:01 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	current_index(t_stack_node *stack)
 		i++;
 	}
 }
-#include <stdio.h>
 
 static void	set_target_node(t_stack_node *a, t_stack_node *b)
 {
@@ -57,8 +56,6 @@ static void	set_target_node(t_stack_node *a, t_stack_node *b)
 		if (best_match == INT_MAX)
 			target_node = return_smallest(a);
 		b->target_node = target_node;
-		// if (target_node)
-		// printf("Target node: %d", b->target_node->value);
 		b = b->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:22:03 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/10 21:49:39 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/12 15:07:05 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static long	ft_atol(const char *str)
 	int		i;
 	long	sign;
 	long	result;
-	
+
 	if (!str)
 		return (0);
 	i = 0;

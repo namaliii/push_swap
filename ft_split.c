@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:15:25 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/09 15:54:19 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/12 15:05:44 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,25 +103,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (words);
 }
-
-// #include <stdio.h>
-// int main(void)
-// {
-// 	int i;
-// 	char str[] = "What if there was no time";
-// 	char **result = ft_split(str, ' ');
-// 	if (result != 0)
-// 	{
-// 		i = 0;
-// 		while (result[i])
-// 		{
-// 			printf("%d: %s\n", i, result[i]);
-// 			free(result[i]);
-// 			i++;
-// 		}
-// 		free(result);
-// 	}
-// 	else
-// 		printf("Memory allocation failed.");
-// 	return (0);
-// }
