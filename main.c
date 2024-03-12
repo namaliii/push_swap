@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 18:19:02 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/12 17:00:49 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:01:31 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 	else
 		stack_init(&a, argv + 1, argc);
 	sort(a, b);
-	if (argc == 2)
+	if (split)
 		free_array(split);
 	free_stack(&a);
 	free_stack(&b);
