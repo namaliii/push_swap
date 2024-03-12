@@ -12,16 +12,16 @@
 
 #include "push_swap.h"
 
-static void	sort(t_stack_node *a, t_stack_node *b)
+static void	sort(t_stack_node **a, t_stack_node **b)
 {
-	if (!stack_ordered(a))
+	if (!stack_ordered(*a))
 	{
-		if (stack_len(a) == 2)
-			sa(&a);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
+		if (stack_len(*a) == 2)
+			sa(a);
+		else if (stack_len(*a) == 3)
+			sort_three(a);
 		else
-			push_swap(&a, &b);
+			push_swap(a, b);
 	}
 }
 
@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 	}
 	else
 		stack_init(&a, argv + 1, argc);
-	sort(a, b);
+	sort(&a, &b);
 	if (split)
 		free_array(split);
 	free_stack(&a);
