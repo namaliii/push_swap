@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:15:25 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/12 15:05:44 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:10:39 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ char	**ft_split(char const *s, char c)
 	words = (char **)malloc(sizeof(char *) * (counter + 1));
 	if (words == NULL)
 		return (NULL);
+	words[counter] = NULL;
 	if (counter > 0)
 	{
 		word_index = parse_words(words, (char *)s, c, word_index);
