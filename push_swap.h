@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 18:29:48 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/10 17:23:30 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:41:51 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ typedef struct s_stack_node
 
 //utils, errors and inits
 char			**ft_split(char const *s, char c);
-void			handle_errors(t_stack_node **a, char *argv, long n);
-void			stack_init(t_stack_node **a, char **argv);
+void			handle_errors(t_stack_node **a, char *argv, int argc, long n);
+void			stack_init(t_stack_node **a, char **argv, int argc);
 void			free_stack(t_stack_node **stack);
+void			free_array(char **array);
 void			push_ready(t_stack_node **stack, t_stack_node *cheapest,
 					char stack_name);
 

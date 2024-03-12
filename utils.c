@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:37:59 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/11 20:23:34 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:31:51 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,18 @@ t_stack_node	*return_last_node(t_stack_node *stack)
 	while (stack->next)
 		stack = stack->next;
 	return (stack);
+}
+
+void	free_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+	array = NULL;
 }

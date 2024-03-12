@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:22:03 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/12 15:07:05 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:41:41 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	append_node(t_stack_node **stack, long n)
 	}
 }
 
-void	stack_init(t_stack_node **a, char **argv)
+void	stack_init(t_stack_node **a, char **argv, int argc)
 {
 	long	n;
 	int		i;
@@ -77,7 +77,7 @@ void	stack_init(t_stack_node **a, char **argv)
 	while (argv[i])
 	{
 		n = ft_atol(argv[i]);
-		handle_errors(a, argv[i], (int)n);
+		handle_errors(a, argv[i], argc, (int)n);
 		append_node(a, (int)n);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:51:03 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/10 17:24:05 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:32:47 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,19 +64,21 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-static void	free_errors(t_stack_node **a)
+static void	free_errors(t_stack_node **a, char **argv, int argc)
 {
 	free_stack(a);
+	if (argc == 2)
+		free_array(argv);
 	write(2, "Error\n", 6);
 	exit(1);
 }
 
-void	handle_errors(t_stack_node **a, char *argv, long n)
+void	handle_errors(t_stack_node **a, char *argv, int argc, long n)
 {
 	if (error_nondigit(argv))
-		free_errors(a);
+		free_errors(a, &argv, argc);
 	if (n > INT_MAX || n < INT_MIN)
-		free_errors(a);
+		free_errors(a, &argv, argc);
 	if (error_duplicated(*a, n))
-		free_errors(a);
+		free_errors(a, &argv, argc);
 }
