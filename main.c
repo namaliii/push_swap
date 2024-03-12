@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 18:19:02 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/12 16:48:55 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:59:33 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,17 @@ int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
+	char			**split;
 
 	a = NULL;
 	b = NULL;
+	split = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
 	{
-		argv = ft_split(argv[1], ' ');
-		stack_init(&a, argv, argc);
+		split = ft_split(argv[1], ' ');
+		stack_init(&a, split, argc);
 	}
 	else
 		stack_init(&a, argv + 1, argc);
