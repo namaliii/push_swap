@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:37:59 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/12 16:31:51 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/13 16:46:52 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	free_array(char **array)
 	int	i;
 
 	i = 0;
-	while (array[i])
+	while (array[i] && array[i][0] != 0)
 	{
 		free(array[i]);
 		i++;

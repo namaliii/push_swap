@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:22:03 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/12 16:41:41 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/13 16:58:39 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ static void	append_node(t_stack_node **stack, long n)
 	new = malloc(sizeof(t_stack_node));
 	if (new == NULL)
 		return ;
-	new->value = n;
-	new->next = NULL;
+	*new = (t_stack_node){n, -1, -1, false, false, NULL, NULL, NULL};
 	if (*stack)
 	{
 		current = *stack;
@@ -77,7 +76,8 @@ void	stack_init(t_stack_node **a, char **argv, int argc)
 	while (argv[i])
 	{
 		n = ft_atol(argv[i]);
-		handle_errors(a, argv[i], argc, (int)n);
+		if (!handle_errors(a, argv[i], (int)n))
+			free_errors(a, argv, argc);
 		append_node(a, (int)n);
 		i++;
 	}

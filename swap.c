@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:41:05 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/06 15:54:27 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/12 19:44:55 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	swap(t_stack_node **head)
 {
-	t_stack_node *tmp;
+	t_stack_node	*tmp;
 
 	if (!*head || !(*head)->next)
 		return ;

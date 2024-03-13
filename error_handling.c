@@ -6,7 +6,7 @@
 /*   By: anamieta <anamieta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:51:03 by anamieta          #+#    #+#             */
-/*   Updated: 2024/03/12 16:54:38 by anamieta         ###   ########.fr       */
+/*   Updated: 2024/03/13 16:59:54 by anamieta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	error_nondigit(char *str)
 
 	i = 0;
 	if ((str[i] == '+' || str[i] == '-')
-		&& !(str[i + 1] >= '0' && str[i + 1] >= '9'))
+		&& !(str[i + 1] >= '0' && str[i + 1] <= '9'))
 		return (1);
 	if (str[i] == '+' || str[i] == '-')
 		i++;
@@ -64,7 +64,7 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-static void	free_errors(t_stack_node **a, char **argv, int argc)
+void	free_errors(t_stack_node **a, char **argv, int argc)
 {
 	free_stack(a);
 	if (argc == 2)
@@ -73,12 +73,13 @@ static void	free_errors(t_stack_node **a, char **argv, int argc)
 	exit(1);
 }
 
-void	handle_errors(t_stack_node **a, char *argv, int argc, long n)
+bool	handle_errors(t_stack_node **a, char *argv, long n)
 {
 	if (error_nondigit(argv))
-		free_errors(a, &argv, argc);
+		return (false);
 	if (n > INT_MAX || n < INT_MIN)
-		free_errors(a, &argv, argc);
+		return (false);
 	if (error_duplicated(*a, n))
-		free_errors(a, &argv, argc);
+		return (false);
+	return (true);
 }
